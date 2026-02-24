@@ -1,5 +1,5 @@
-﻿using Newtonsoft.Json;
-using ReduxTools.Feature.Config;
+﻿using Game.ReedemCode.Common;
+using Newtonsoft.Json;
 using UnityEngine;
 using VContainer;
 
