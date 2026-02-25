@@ -55,12 +55,6 @@ namespace Game.ReedemCode.Core
             OnClose?.Invoke(this);
         }
 
-        private void CloseButton_OnClick()
-        {
-            _popupData.OnCloseClick?.OnNext(Unit.Default);
-            Close();
-        }
-
         public void ChangeViewOnCodeEntered(PromoCodeValidationResult result)
         {
             var data = _popupData.Config.LocalizationsByResults.FirstOrDefault(d => d.Result == result);
@@ -70,6 +64,12 @@ namespace Game.ReedemCode.Core
                 _errorText.gameObject.SetActive(true);
             }
         }
+
+        private void CloseButton_OnClick()
+        {
+            _popupData.OnCloseClick?.OnNext(Unit.Default);
+            Close();
+        }        
 
         private void EnterCodeButton()
         {
