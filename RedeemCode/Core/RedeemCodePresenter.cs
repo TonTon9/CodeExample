@@ -34,11 +34,8 @@ namespace Game.ReedemCode.Core
         {
             _hudLoadChannel.OnLoadHudScreen.SubscribeWithSkip(x => OnHudLoaded(x)).AddTo(ref _disposable);
             _service.OnCodeEntered.Subscribe(OnCodeEntered).AddTo(ref _disposable);
-            ;
             _onEnterCodeClick.Subscribe(EnterCodeClick).AddTo(ref _disposable);
-            ;
             _onCloseClick.Subscribe(_ => OnCLose()).AddTo(ref _disposable);
-            ;
         }
 
         public void ShowPopup()
