@@ -14,6 +14,7 @@ namespace Game.ReedemCode.Core
         [SerializeField] private Button _enterCodeButton;
         [SerializeField] private TMP_InputField _codeInputField;
         [SerializeField] private LocalizedText _errorText;
+        [SerializeField] private float _fadeDuration = 0.25f;
 
         public class RedeemCodePopupData : PopupData
         {
@@ -38,13 +39,13 @@ namespace Game.ReedemCode.Core
         {
             base.OnShow();
             canvasGroup.alpha = 0;
-            canvasGroup.DOFade(1f, 0.25f).SetEase(Ease.OutSine).SetLink(gameObject);
+            canvasGroup.DOFade(1f, _fadeDuration).SetEase(Ease.OutSine).SetLink(gameObject);
             ServiceLocator<SoundService>.Get()?.Play(SoundType.pop_up);
         }
 
         public override void OnHide()
         {
-            canvasGroup.DOFade(0f, 0.15f)
+            canvasGroup.DOFade(0f, _fadeDuration)
                 .SetEase(Ease.OutSine)
                 .SetLink(gameObject)
                 .OnComplete(() => base.OnHide());
